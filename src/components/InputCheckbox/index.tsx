@@ -1,5 +1,6 @@
 import classNames from "classnames"
 import { useRef } from "react"
+import { createSecureContext } from "tls"
 import { InputCheckboxComponent } from "./types"
 
 export const InputCheckbox: InputCheckboxComponent = ({ id, checked = false, disabled, onChange }) => {
@@ -12,15 +13,16 @@ export const InputCheckbox: InputCheckboxComponent = ({ id, checked = false, dis
           "RampInputCheckbox--label-checked": checked,
           "RampInputCheckbox--label-disabled": disabled,
         })}
+        onClick={() =>  onChange(!checked)}
       />
-      <input
+      {/* <input
         id={inputId}
         type="checkbox"
         className="RampInputCheckbox--input"
         checked={checked}
         disabled={disabled}
         onChange={() => onChange(!checked)}
-      />
+      /> */}
     </div>
   )
 }
